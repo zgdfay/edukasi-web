@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowLeft, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -58,10 +58,13 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <Button
               asChild
-              variant="outline"
-              size="sm"
-              className="px-6 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors">
-              <Link href="/login">Log In</Link>
+              variant="default"
+              size="default"
+              className="font-semibold">
+              <Link href="/login" className="flex items-center gap-2">
+                Login
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </Button>
           </div>
 
@@ -100,11 +103,15 @@ export default function Navbar() {
               })}
               <Button
                 asChild
-                variant="outline"
-                size="sm"
-                className="w-full mt-2 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors">
-                <Link href="/login" onClick={() => setIsOpen(false)}>
-                  Log In
+                variant="default"
+                size="default"
+                className="w-full mt-2 font-semibold">
+                <Link
+                  href="/login"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-2 justify-center">
+                  Login
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
             </div>
